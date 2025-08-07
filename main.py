@@ -116,15 +116,15 @@ class UltimatePenTestSimulator:
         # Run Flask in a separate thread
         self.flask_thread = threading.Thread(
             target=lambda: self.web_app.run(
-                port=5000,
+                port=3021,  # ← updated port
                 debug=False,
                 use_reloader=False,
-                # These parameters suppress output:
                 host='127.0.0.1',
                 passthrough_errors=True
             ),
             daemon=True
         )
+
         self.flask_thread.start()
 
     def _render_web_interface(self, host, path):
